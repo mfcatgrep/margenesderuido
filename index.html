@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <title>A1109 | Simulador de margen de ruido</title>
+    <link rel="stylesheet" type="text/css" href="resources/css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@700,400&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+
+<body class="body">
+
+    <div class="A1109Bar"> A1109  </div>
+
+    <div class="CalculatorTitle"> SIMULADOR DE MARGEN DE RUIDO </div>
+
+    <div class="MainContainer">
+        <p class="GateOutputTitle">Salida</p>
+
+        <div class="GateOutput">
+            <div class=GateOutputHigherPadding></div>
+            <div class="HighOutput" id="GateOutputHigh">
+                <div class="GateHighValue">
+                    <p id="VOHMaxLabel">VOHMax</p>
+                </div>
+                <div class="GateLowValue">
+                    <p id="VOHMinLabel">VOHMin</p>
+                </div>
+            </div>
+            <div class="MediumOutput" id="GateOutputMedium">
+            </div>
+            <div class="LowOutput" id="GateOutputLow">
+                <div class="GateHighValue">
+                    <p id="VOLMaxLabel">VOLMax</p>
+                </div>
+                <div class="GateLowValue">
+                    <p id="VOLMinLabel">VOLMin</p>
+                </div>
+            </div>
+            <div class=GateOutputLowerPadding></div>
+        </div>
+
+        <div class="NoiseMargin">
+
+            <div class="NoiseMarginHighPadding">
+            </div>
+
+            <div class="NoiseMarginHigh">
+                <div class="noiseMarginValueHigh"></div>
+            </div>
+
+            <div class="NoiseMarginMediumPaddig">
+            </div>
+
+            <div class="NoiseMarginLow">
+                <div class="noiseMarginValueLow"></div>
+            </div>
+
+            <div class="NoiseMarginLowPadding">
+            </div>
+
+        </div>
+
+        <p class="GateInputTitle">Entrada</p>
+        <div class="GateInput">
+            <div class=GateInputHigherPadding></div>
+            <div class="HighInput" id="GateInputHigh">
+                    <div class="GateHighValue">
+                        <p id="VIHMaxLabel">VIHMax</p>
+                    </div>
+                    <div class="GateLowValue">
+                        <p id="VIHMinLabel">VIHMin</p>
+                    </div>
+            </div>
+
+            <div class="MediumOutput" id="GateInputMedium">
+            </div>
+
+            <div class="LowInput" id="GateInputLow">
+                    <div class="GateHighValue">
+                        <p id="VILMaxLabel">VILMax</p>
+                    </div>
+                    <div class="GateLowValue">
+                        <p id="VILMinLabel">VILMin</p>
+                    </div>
+            </div>
+            <div class=GateInputLowerPadding></div>
+        </div>
+
+
+
+        <div class=OutputGatePanel>
+            <p class="OutputGatePanelTitle">Compuerta de salida</p>
+
+            <form>
+                <label class="InputFieldLabel">VOHMax (V)
+                    <input  class="InputField" type=number id="VOHMaxInput">
+                </label>
+
+                <label class="InputFieldLabel">VOHMin (V)
+                <input class="InputField" type=number id="VOHMinInput"> </input>
+                </label>
+
+                <label class="InputFieldLabel">VOLMax (V)
+                    <input class="InputField" type=number id="VOLMaxInput"> </input>
+                </label>
+
+                <label class="InputFieldLabel">VOLMin (V)
+                    <input class="InputField" type=number id="VOLMinInput"> </input>
+                </label>
+            </form>
+        </div>
+
+
+        <div class=InputGatePanel>
+
+            <p class="InputGatePanelTitle">Compuerta de entrada</p>
+
+            <form>
+                <label class="InputFieldLabel">VIHMax (V)
+                    <input class="InputField" type=number id="VIHMaxInput" > </input>
+                </label>
+
+                <label class="InputFieldLabel">VIHMin (V)
+                    <input class="InputField" type=number id="VIHMinInput" > </input>
+                </label>
+
+                <label class="InputFieldLabel">VILMax (V)
+                    <input class="InputField" type=number id="VILMaxInput" > </input>
+                </label>
+
+                <label class="InputFieldLabel">VILMin (V)
+                    <input class="InputField" type=number id="VILMinInput" "> </input>
+                </label>
+            </form>
+        </div>
+
+
+         <button class="CalculateButton" id="Calculate">Calcular</button>
+
+         <div class="ResultInfo">
+                <p class="ResultTitle"></p>
+                <p class="ResultExplanation"></p>
+         </div>
+
+
+    </div>
+
+    <script src="resources/js/NoiseMargin.js"></script>
+</body>
+
+</html>
