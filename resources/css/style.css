@@ -1,0 +1,543 @@
+:root
+{
+    --fontColor: #424242;
+    --toolTitleFontColor:  #424242;
+    --toolTitleBarColor: #F1F3F6;
+    --A1109TitleBarColor: #000000;
+    --A1109FontColor: #F9F9F9;
+    --backgroundColor: #FFFFFF;
+    --gateBandColor:#FAC53F;
+    --wrongNMColor: #CD4130;
+    --rightNMColor: #6BAD55;
+}
+
+html
+{
+    background-color:var(--backgroundColor);
+    font-family: "IBM Plex Mono", monospace;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.body
+{
+    margin:0;
+    display:block;
+    min-height:100vh;
+}
+
+@media only screen and (max-width: 1080px) and (orientation: landscape)
+{
+    .body
+    {
+        min-height:150vh;
+    }
+}
+
+
+.MainContainer
+{
+    height:80vh;
+    width: 50%;
+
+    margin:auto;
+    padding-left:3.5vh;
+    padding-right:3.5vh;
+    padding-bottom:3.5vh;
+
+    display: grid;
+    grid-template-areas:
+    "GOT NMP GIT CTP"
+    "GO  NM  GI  IGO"
+    "GO  NM  GI  IGI"
+    "GO  NM  GI  CAL"
+    "GO  NM  GI  INF"
+    "GO  NM  GI  PAD"
+    "GO  NM  GI  PAD"
+    "GO  NM  GI  PAD"
+    "GO  NM  GI  PAD"
+    "GO  NM  GI  PAD";
+
+
+    grid-template-rows: min-content;
+}
+
+
+@media only screen and (max-width: 1080px) and (orientation: landscape)
+{
+    .MainContainer
+    {
+        height:100vh;
+        width: 100%;
+
+        margin:auto;
+        padding: unset;
+
+        display: grid;
+
+         grid-template-areas:
+        "GOT NMP GIT CTP"
+        "GO  NM  GI  IGO"
+        "GO  NM  GI  IGI"
+        "GO  NM  GI  CAL"
+        "GO  NM  GI  CAL"
+        "GO  NM  GI  CAL"
+        "GO  NM  GI  CAL"
+        "INF INF INF INF"
+        "INF INF INF INF"
+        "INF INF INF INF";
+
+
+        grid-template-rows: min-content;
+    }
+}
+
+
+@media only screen and (max-width: 1080px) and (orientation: portrait)
+{
+    .MainContainer
+    {
+        height:200vh;
+        width: 90%;
+
+        padding:0;
+
+        border-left:3.5vh;
+        border-right:3.5vh;
+        border-bottom:3.5vh;
+
+        display: grid;
+        grid-template-areas:
+        "GOT  GOT  NMP  NMP GIT  GIT"
+        "GO   GO   NM   NM  GI   GI"
+        "GO   GO   NM   NM  GI   GI"
+        "GO   GO   NM   NM  GI   GI"
+        "OGP  OGP  OGP  IGP IGP  IGP"
+        "CAL  CAL  CAL  CAL CAL  CAL"
+        "INF  INF  INF  INF INF  INF"
+        "INF  INF  INF  INF INF  INF"
+        "INF  INF  INF  INF INF  INF"
+        "INF  INF  INF  INF INF  INF"
+        "INF  INF  INF  INF INF  INF";
+
+
+
+        grid-template-rows: min-content;
+    }
+
+}
+
+
+.A1109Bar
+{
+    background-color:var(--A1109TitleBarColor);
+    color:var(--A1109FontColor);
+
+    height:3vh;
+    width:98.5vw;
+
+    padding-top:1.5vh;
+    padding-left:1.5vw;
+
+    font-size: 2vh;
+
+}
+
+.CalculatorTitle
+{
+    background-color:var(--toolTitleBarColor);
+    color:var(--toolTitleFontColor);
+
+    height:4vh;
+    width:98.5vw;
+
+    padding-top:2.5vh;
+    padding-left:1.5vw;
+
+    font-family: "Rubik", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    letter-spacing: 2px;
+    font-size: 2vh;
+}
+
+.GateOutput
+{
+    padding:6%;
+    grid-area:GO;
+}
+
+@media only screen and (max-width: 1080px) and (orientation: portrait)
+{
+    .GateOutput
+    {
+        width:70%;
+        grid-area:GO;
+        margin-right:auto;
+        margin-left:auto;
+        padding:6%;
+    }
+}
+
+
+.HighOutput
+{
+    background:var(--gateBandColor);
+    color:var(--fontColor);
+
+    height:50%;
+    width:100%;
+
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+.MediumOutput
+{
+    width:100%;
+    height:30%;
+}
+
+.LowOutput
+{
+    background:var(--gateBandColor);
+    color:var(--fontColor);
+
+    height:20%;
+    width:100%;
+
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+
+.NoiseMargin
+{
+    grid-area:NM;
+    margin:5%;
+
+}
+
+.NoiseMarginHighPadding
+{
+    width:100%;
+}
+
+.NoiseMarginHigh
+{
+    width:100%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.NoiseMarginMediumPaddig
+{
+    width:100%;
+}
+
+.NoiseMarginLow
+{
+    width:100%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.NoiseMarginLowPadding
+{
+    width:100%;
+}
+
+
+.GateInput
+{
+    grid-area:GI;
+    margin-right:2vw;
+    padding:6%;
+}
+
+@media only screen and (max-width: 1080px) and (orientation: portrait)
+{
+    .GateInput
+    {
+        width:70%;
+        grid-area:GI;
+        margin-right:auto;
+        margin-left:auto;
+        padding:6%;
+    }
+}
+
+.HighInput
+{
+    background:var(--gateBandColor);
+    color:var(--fontColor);
+
+    height:50%;
+    width:100%;
+
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+.MediumInput
+{
+    width:100%;
+    height:30%;
+}
+
+.LowInput
+{
+    background:var(--gateBandColor);
+    color:var(--fontColor);
+
+    height:20%;
+    width:100%;
+
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+
+.GateHighValue
+{
+    display: flex;
+    height:50%;
+    justify-content: center;
+}
+
+.GateLowValue
+{
+    height:50%;
+
+    display: flex;
+    justify-content: center;
+    align-items:flex-end;
+}
+
+.noiseMarginValueHigh
+{
+    height:100%;
+
+    display: flex;
+    justify-content: center;
+    align-items:center;
+}
+
+.noiseMarginValueLow
+{
+    height:100%;
+
+    display: flex;
+    justify-content: center;
+    align-items:center;
+}
+
+.GateOutputHigherPadding
+{
+    height:0%;
+}
+
+.GateOutputLowerPadding
+{
+    height:0%;
+}
+
+
+.GateInputHigherPadding
+{
+    height:0%;
+}
+
+
+
+.CalculateButtonPanel
+{
+    height:10%;
+
+    margin-top:5%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.OutputGatePanel
+{
+    grid-area:IGO;
+}
+
+@media only screen and (max-width: 1080px) and (orientation: portrait)
+{
+    .OutputGatePanel
+    {
+        grid-area:OGP;
+        margin : auto;
+        width:90%;
+    }
+}
+
+
+
+
+.InputFieldLabel
+{
+    margin:2%;
+    display: flex;
+    align-items: center;
+}
+
+@media only screen and (max-width: 1080px) and (orientation: landscape)
+{
+
+   .InputFieldLabel
+    {
+        margin:2%;
+        display: grid;
+        align-items: center;
+    }
+
+}
+
+@media only screen and (max-width: 1080px) and (orientation: portrait)
+{
+
+    .InputFieldLabel
+    {
+        margin:2%;
+        display:inline-table;
+        align-items: unset;
+        text-align: center;
+        border-spacing: 1vh;
+    }
+}
+
+
+.InputField
+{
+     margin:0.5%;
+}
+
+
+
+@media only screen and (max-width: 1080px) and (orientation: portrait)
+{
+    .InputField
+    {
+        margin:0.5%;
+        width:75%;
+        text-align: center;
+    }
+
+}
+
+
+.InputGatePanel
+{
+    grid-area:IGI;
+}
+
+@media only screen and (max-width: 1080px) and (orientation: portrait)
+{
+
+    .InputGatePanel
+    {
+
+        grid-area:IGP;
+        margin : auto;
+        width:90%;
+    }
+
+}
+
+
+
+
+.CalculateButton
+{
+    margin: auto;
+    width: 50%;
+    height: 3vh;
+    grid-area: CAL;
+}
+
+@media only screen and (max-width: 1080px) and (orientation: portrait)
+{
+    .CalculateButton
+    {
+        height: 5vh;
+        grid-area: CAL;
+    }
+
+}
+
+
+@media only screen and (max-width: 1080px) and (orientation: landscape)
+{
+    .CalculateButton
+    {
+        height: 10vh;
+        grid-area: CAL;
+    }
+}
+
+.ResultTitle
+{
+  width: 0;
+  min-width: 100%;
+
+  text-align: center;
+}
+
+.ResultExplanation
+{
+  min-width: 100%;
+  width: 0;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  white-space: pre-line;
+  text-align: center;
+}
+
+
+.GateOutputTitle
+{
+    grid-area: GOT;
+    text-align: center;
+}
+
+
+.GateInputTitle
+{
+    grid-area: GIT;
+    text-align: center;
+    margin-right: 2vw;
+}
+
+
+.NoiseMarginSeparation
+{
+    grid-area: NM;
+    margin: 5%;
+}
+
+.ResultInfo
+{
+    grid-area: INF;
+}
+
+
+
+@media only screen and (max-width: 1080px) and (orientation: portrait)
+{
+
+    .InputGatePanelTitle
+    {
+        text-align: center;
+    }
+
+    .OutputGatePanelTitle
+    {
+        text-align: center;
+    }
+}
+
