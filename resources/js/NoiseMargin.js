@@ -2,6 +2,107 @@
 
 let focusConfigured=false;
 
+
+//This will not work with negative numbers
+function precisionSubstraction(minuend,substrahend)
+{
+
+    let negative=false;
+    let minuendString=minuend.toString();
+    let substrahendString=substrahend.toString();
+
+    if(minuendString.indexOf(".")==-1 && substrahendString.indexOf(".")==-1)
+        return minuend-substrahend;
+
+    if(minuend<substrahend)
+    {
+        let aux=minuend;
+        minuend=substrahend;
+        substrahend=aux;
+        aux=minuendString;
+        minuendString=substrahendString;
+        substrahendString=aux;
+        negative=true;
+    }
+
+    let minuendIntegerLength=minuendString.split(".")[0].length;
+    let substrahendIntegerLength=substrahendString.split(".")[0].length;
+    let result="";
+
+     if(minuendString.indexOf(".")==-1)
+        minuendString+=".00";
+     else
+     {
+        if(minuendString.split(".")[1].length == 1)
+            minuendString+="0";
+     }
+
+     if(substrahendString.indexOf(".")==-1)
+        substrahendString+=".00";
+     else
+     {
+        if(substrahendString.split(".")[1].length == 1)
+            substrahendString+="0";
+     }
+
+     if( minuendIntegerLength > substrahendIntegerLength)
+     {
+         for(let i=0;i<  minuendIntegerLength - substrahendIntegerLength ; i++)
+           substrahendString="0"+substrahendString;
+     }
+     else
+     {
+        if(substrahendIntegerLength != minuendIntegerLength)
+            for(let i=0;i<substrahendIntegerLength-minuendIntegerLength; i++)
+                minuendString="0"+minuendString;
+
+     }
+
+     substrahend=substrahendString.split(".")[0]+substrahendString.split(".")[1];
+     minuend=minuendString.split(".")[0]+minuendString.split(".")[1];
+
+     let substrahendVector=[];
+     let minuendVector=[];
+
+
+     for(let i=0;i<substrahend.length;i++)
+     {
+         substrahendVector.push(substrahend.charCodeAt(i)-48);
+         minuendVector.push(minuend.charCodeAt(i)-48);
+     }
+
+
+     for(let i=substrahendVector.length-1;i>=0;i--)
+     {
+        if(minuendVector[i]>=substrahendVector[i])
+            result=(minuendVector[i]-substrahendVector[i]).toString()+result;
+        else
+        {
+
+            let j=i;
+
+            minuendVector.splice(i,1,minuendVector[i]+10);
+
+            j--;
+            while(minuendVector[j]==0 && j>0)
+            {
+                minuendVector.splice(j,1,minuendVector[j]+9)
+                j--;
+
+            }
+
+            minuendVector.splice(j,1,minuendVector[j]-1)
+            result=(minuendVector[i]-substrahendVector[i]).toString()+result;
+        }
+
+     }
+
+     if(negative==true)
+         result="-"+result;
+
+    return parseFloat(result.substring(0,result.length-2)+"."+result.substring(result.length-2,result.length));
+}
+
 function findExtrems(inputDictionary)
 {
     let start=true;
@@ -244,8 +345,8 @@ class NoiseMargin
         this.nmLowBand=nmLowBand;
         this.nmLowPadding=nmLowPadding;
 
-        this.nmHighValue=this.outputGate.getVHMinValue()-this.inputGate.getVHMinValue();
-        this.nmLowValue=this.inputGate.getVLMaxValue()-this.outputGate.getVLMaxValue();
+        this.nmHighValue= precisionSubstraction(this.outputGate.getVHMinValue(),this.inputGate.getVHMinValue());
+        this.nmLowValue=  precisionSubstraction(this.inputGate.getVLMaxValue(),this.outputGate.getVLMaxValue());
 
         this.nmHighLabel=nmHighLabel;
         this.nmLowLabel=nmLowLabel;
@@ -825,8 +926,92 @@ class ControlPanel
         }
 
 
+        if(this.VOHMaxValue.toString().indexOf(".")!=-1)
+        {
+            if(this.VOHMaxValue.toString().split(".")[1].length>2)
+            {
+                explanation.setCompatible(false);
+                explanation.setTitle("Solamente se aceptan numeros con hasta 2 decimales");
+                return explanation;
+            }
+        }
+
+        if(this.VOHMinValue.toString().indexOf(".")!=-1)
+        {
+            if(this.VOHMinValue.toString().split(".")[1].length>2)
+            {
+                explanation.setCompatible(false);
+                explanation.setTitle("Solamente se aceptan numeros con hasta 2 decimales");
+                return explanation;
+            }
+        }
+
+        if(this.VOLMaxValue.toString().indexOf(".")!=-1)
+        {
+            if(this.VOLMaxValue.toString().split(".")[1].length>2)
+            {
+                explanation.setCompatible(false);
+                explanation.setTitle("Solamente se aceptan numeros con hasta 2 decimales");
+                return explanation;
+            }
+        }
+
+        if(this.VOLMinValue.toString().indexOf(".")!=-1)
+        {
+            if(this.VOLMinValue.toString().split(".")[1].length>2)
+            {
+                explanation.setCompatible(false);
+                explanation.setTitle("Solamente se aceptan numeros con hasta 2 decimales");
+                return explanation;
+            }
+        }
+
+        if(this.VIHMaxValue.toString().indexOf(".")!=-1)
+        {
+            if(this.VIHMaxValue.toString().split(".")[1].length>2)
+            {
+               explanation.setCompatible(false);
+                explanation.setTitle("Solamente se aceptan numeros con hasta 2 decimales");
+                return explanation;
+            }
+        }
+
+        if(this.VIHMinValue.toString().indexOf(".")!=-1)
+        {
+            if(this.VIHMinValue.toString().split(".")[1].length>2)
+            {
+               explanation.setCompatible(false);
+                explanation.setTitle("Solamente se aceptan numeros con hasta 2 decimales");
+                return explanation;
+            }
+        }
+
+        if(this.VILMaxValue.toString().indexOf(".")!=-1)
+        {
+            if(this.VILMaxValue.toString().split(".")[1].length>2)
+            {
+               explanation.setCompatible(false);
+                explanation.setTitle("Solamente se aceptan numeros con hasta 2 decimales");
+                return explanation;
+            }
+
+        }
+
+        if(this.VILMinValue.toString().indexOf(".")!=-1)
+        {
+            if(this.VILMinValue.toString().split(".")[1].length>2)
+            {
+                explanation.setCompatible(false);
+                explanation.setTitle("Solamente se aceptan numeros con hasta 2 decimales");
+                return explanation;
+            }
+        }
+
+
+
         if(this.VOHMaxValue<=this.VOHMinValue)
         {
+
             explanation.setCompatible(false);
             explanation.addExplanation("● VOHMax es menor o igual que VOHMin\r\n");
         }
