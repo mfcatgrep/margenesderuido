@@ -1,3 +1,4 @@
+/* Martin Ferreya*/
 
 @media only screen and (orientation: portrait)
 {
@@ -1133,8 +1134,8 @@
 
         display: grid;
         grid-template-areas:
-        "GRA INC INF"
-        "GRA INC INF";
+        "GRA INC "
+        "GRA INC ";
         grid-template-rows: min-content;
     }
 
@@ -1371,6 +1372,8 @@
     {
         display:grid;
         grid-area:OGP;
+        width: 70%;
+        margin: auto;
     }
 
     .OutputGateForm
@@ -1448,6 +1451,8 @@
 
         display: grid;
         grid-area: IGP;
+        width: 70%;
+        margin: auto;
     }
 
     .InputGateForm
@@ -1526,11 +1531,12 @@
         width: 50%;
         height: 3vh;
         grid-area: CAL;
+        margin-top : 10%;
     }
 
     .ResultInfo
     {
-        width: 85%;
+        width: 50%;
         overflow-wrap: break-word;
         hyphens: auto;
         text-align: center;
