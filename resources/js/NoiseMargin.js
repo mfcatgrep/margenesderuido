@@ -783,6 +783,9 @@ class ControlPanel
     setExplanation(explanation)
     {
 
+        this.resultTitle.style.whiteSpace="pre-line";
+        this.resultExplanation.style.whiteSpace="pre-line"
+
         if(explanation.getValid() === false)
             this.resultTitle.style.color="var(--wrongNMColor)";
         else
@@ -1143,6 +1146,8 @@ function calculate()
 {
     const panel=new ControlPanel();
     panel.calculate();
+    const result=document.querySelector('.ResultInfo');
+    result.scrollIntoView({ block: "end", behavior: "smooth" });
 }
 
 function configureFocus()
