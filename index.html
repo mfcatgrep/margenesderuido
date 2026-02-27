@@ -8,9 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&display=swap" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="resources/images/favicon.png">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 </head>
 
 <body class="body">
@@ -19,134 +17,134 @@
 
     <div class="CalculatorTitle"> SIMULADOR DE MARGEN DE RUIDO </div>
 
+    <div class="ResultInfo">
+            <p class="ResultTitle"></p>
+            <p class="ResultExplanation">Ingrese los valores de cada una de las tensiones y presione el boton calcular</p>
+    </div>
+
     <div class="MainContainer">
-        <p class="GateOutputTitle">Salida</p>
-
-        <div class="GateOutput">
-            <div class=GateOutputHigherPadding></div>
-            <div class="HighOutput" id="GateOutputHigh">
-                <div class="GateHighValue">
-                    <p id="VOHMaxLabel">VOHMax</p>
-                </div>
-                <div class="GateLowValue">
-                    <p id="VOHMinLabel">VOHMin</p>
-                </div>
-            </div>
-            <div class="MediumOutput" id="GateOutputMedium">
-            </div>
-            <div class="LowOutput" id="GateOutputLow">
-                <div class="GateHighValue">
-                    <p id="VOLMaxLabel">VOLMax</p>
-                </div>
-                <div class="GateLowValue">
-                    <p id="VOLMinLabel">VOLMin</p>
-                </div>
-            </div>
-            <div class=GateOutputLowerPadding></div>
-        </div>
-
-        <div class="NoiseMargin">
-
-            <div class="NoiseMarginHighPadding">
-            </div>
-
-            <div class="NoiseMarginHigh">
-                <div class="noiseMarginValueHigh"></div>
-            </div>
-
-            <div class="NoiseMarginMediumPaddig">
-            </div>
-
-            <div class="NoiseMarginLow">
-                <div class="noiseMarginValueLow"></div>
-            </div>
-
-            <div class="NoiseMarginLowPadding">
-            </div>
-
-        </div>
-
-        <p class="GateInputTitle">Entrada</p>
-        <div class="GateInput">
-            <div class=GateInputHigherPadding></div>
-            <div class="HighInput" id="GateInputHigh">
+        <div class=GraphicContainer>
+            <p class="GateOutputTitle">Salida</p>
+            <div class="GateOutput">
+                <div class=GateOutputHigherPadding></div>
+                <div class="HighOutput" id="GateOutputHigh">
                     <div class="GateHighValue">
-                        <p id="VIHMaxLabel">VIHMax</p>
+                        <p id="VOHMaxLabel">VOHMax</p>
                     </div>
                     <div class="GateLowValue">
-                        <p id="VIHMinLabel">VIHMin</p>
+                        <p id="VOHMinLabel">VOHMin</p>
                     </div>
-            </div>
-
-            <div class="MediumOutput" id="GateInputMedium">
-            </div>
-
-            <div class="LowInput" id="GateInputLow">
+                </div>
+                <div class="MediumOutput" id="GateOutputMedium">
+                </div>
+                <div class="LowOutput" id="GateOutputLow">
                     <div class="GateHighValue">
-                        <p id="VILMaxLabel">VILMax</p>
+                        <p id="VOLMaxLabel">VOLMax</p>
                     </div>
                     <div class="GateLowValue">
-                        <p id="VILMinLabel">VILMin</p>
+                        <p id="VOLMinLabel">VOLMin</p>
                     </div>
+                </div>
+                <div class=GateOutputLowerPadding></div>
             </div>
-            <div class=GateInputLowerPadding></div>
+
+            <div class="NoiseMargin">
+
+                <div class="NoiseMarginHighPadding">
+                </div>
+
+                <div class="NoiseMarginHigh">
+                    <div class="noiseMarginValueHigh"></div>
+                </div>
+
+                <div class="NoiseMarginMediumPaddig">
+                </div>
+
+                <div class="NoiseMarginLow">
+                    <div class="noiseMarginValueLow"></div>
+                </div>
+
+                <div class="NoiseMarginLowPadding">
+                </div>
+
+            </div>
+
+            <p class="GateInputTitle">Entrada</p>
+            <div class="GateInput">
+                <div class=GateInputHigherPadding></div>
+                <div class="HighInput" id="GateInputHigh">
+                        <div class="GateHighValue">
+                            <p id="VIHMaxLabel">VIHMax</p>
+                        </div>
+                        <div class="GateLowValue">
+                            <p id="VIHMinLabel">VIHMin</p>
+                        </div>
+                </div>
+
+                <div class="MediumOutput" id="GateInputMedium">
+                </div>
+
+                <div class="LowInput" id="GateInputLow">
+                        <div class="GateHighValue">
+                            <p id="VILMaxLabel">VILMax</p>
+                        </div>
+                        <div class="GateLowValue">
+                            <p id="VILMinLabel">VILMin</p>
+                        </div>
+                </div>
+                <div class=GateInputLowerPadding></div>
+            </div>
         </div>
 
 
 
-        <div class=OutputGatePanel>
-            <p class="OutputGatePanelTitle">Compuerta de salida</p>
+        <div class="InputContainer">
 
-            <form>
-                <label class="InputFieldLabel">VOHMax (V)
-                    <input  class="InputField" type=number id="VOHMaxInput">
-                </label>
+            <div class=OutputGatePanel>
+                <p class="OutputGatePanelTitle">Compuerta de salida</p>
 
-                <label class="InputFieldLabel">VOHMin (V)
-                <input class="InputField" type=number id="VOHMinInput"> </input>
-                </label>
+                <form class=InputGateForm>
+                    <label class="InputFieldLabelVOHMaxl" for=VOHMaxInput>VOHMax (V) </label>
+                    <input  class="InputFieldVOHMax" type=number id="VOHMaxInput">
 
-                <label class="InputFieldLabel">VOLMax (V)
-                    <input class="InputField" type=number id="VOLMaxInput"> </input>
-                </label>
 
-                <label class="InputFieldLabel">VOLMin (V)
-                    <input class="InputField" type=number id="VOLMinInput"> </input>
-                </label>
-            </form>
+                    <label class="InputFieldLabelVOHMin" for=VOHMinInput>VOHMin (V)</label>
+                    <input class="InputFieldVOHMin" type=number id="VOHMinInput"> </input>
+
+
+                    <label class="InputFieldLabelVOLMax"  for=VOLMaxInput>VOLMax (V)</label>
+                    <input class="InputFieldVOLMax" type=number id="VOLMaxInput"> </input>
+
+                    <label class="InputFieldLabelVOLMin" for="VOLMinInput">VOLMin (V)</label>
+                    <input class="InputFieldVOLMin" type=number id="VOLMinInput"> </input>
+                </form>
+            </div>
+
+
+            <div class=InputGatePanel>
+
+                <p class="InputGatePanelTitle">Compuerta de entrada</p>
+
+                <form class=OutputGateForm>
+                    <label class="InputFieldLabelVIHMax" for=VIHMaxInput>VIHMax (V) </label>
+                    <input class="InputFieldVIHMax" type=number id="VIHMaxInput" > </input>
+
+
+                    <label class="InputFieldLabelVIHMin" for=VIHMinInput>VIHMin (V)</label>
+                    <input class="InputFieldVIHMin" type=number id="VIHMinInput" > </input>
+
+
+                    <label class="InputFieldLabelVILMax" for=VILMaxInput>VILMax (V)</label>
+                    <input class="InputFieldVILMax" type=number id="VILMaxInput" > </input>
+
+                    <label class="InputFieldLabelVILMin" for=VILMinInput>VILMin (V)</label>
+                    <input class="InputFieldVILMin" type=number id="VILMinInput"> </input>
+                </form>
+            </div>
+
+
+            <button class="CalculateButton" id="Calculate">Calcular</button>
         </div>
-
-
-        <div class=InputGatePanel>
-
-            <p class="InputGatePanelTitle">Compuerta de entrada</p>
-
-            <form>
-                <label class="InputFieldLabel">VIHMax (V)
-                    <input class="InputField" type=number id="VIHMaxInput" > </input>
-                </label>
-
-                <label class="InputFieldLabel">VIHMin (V)
-                    <input class="InputField" type=number id="VIHMinInput" > </input>
-                </label>
-
-                <label class="InputFieldLabel">VILMax (V)
-                    <input class="InputField" type=number id="VILMaxInput" > </input>
-                </label>
-
-                <label class="InputFieldLabel">VILMin (V)
-                    <input class="InputField" type=number id="VILMinInput" "> </input>
-                </label>
-            </form>
-        </div>
-
-
-         <button class="CalculateButton" id="Calculate">Calcular</button>
-
-         <div class="ResultInfo">
-                <p class="ResultTitle"></p>
-                <p class="ResultExplanation"></p>
-         </div>
 
 
     </div>
