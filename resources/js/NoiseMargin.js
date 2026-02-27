@@ -1,4 +1,5 @@
 "use strict"
+/* Martin Ferreya*/
 
 let focusConfigured=false;
 
