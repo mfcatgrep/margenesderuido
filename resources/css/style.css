@@ -1128,9 +1128,6 @@
         width: 50%;
 
         margin:auto;
-        padding-left:3.5vh;
-        padding-right:3.5vh;
-        padding-bottom:3.5vh;
 
         display: grid;
         grid-template-areas:
