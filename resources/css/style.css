@@ -1128,14 +1128,11 @@
         width: 50%;
 
         margin:auto;
-        padding-left:3.5vh;
-        padding-right:3.5vh;
-        padding-bottom:3.5vh;
 
         display: grid;
         grid-template-areas:
-        "GRA INC "
-        "GRA INC ";
+        "GRA GRA INC "
+        "GRA GRA INC ";
         grid-template-rows: min-content;
     }
 
@@ -1188,6 +1185,7 @@
         "GO  NM   GI";
         grid-template-rows:max-content;
         grid-area: GRA;
+        padding-left: 20%;
     }
 
     .GateOutputTitle
