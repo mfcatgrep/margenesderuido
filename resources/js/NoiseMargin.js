@@ -1248,7 +1248,7 @@ function showSharePopup()
     parameters.append("VILMin",previousGateInput.getVLMinValue());
 
 
-    urlToShare=urlToShare.origin+"/?"+parameters.toString();
+    urlToShare=urlToShare.origin+urlToShare.pathname+"?"+parameters.toString();
 
     url.value=urlToShare.toString();
     popup.style.display="block";
