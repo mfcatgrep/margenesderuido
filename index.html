@@ -17,6 +17,18 @@
 
 <body class="body">
 
+    <div class="ShareModalPopup" id="SharePopup">
+        <div class="ShareModalContent">
+            <div class="PopupInfo">
+                <label class="PopupLabel" for=urlText>Copie el link a continuación</label>
+                <input class="PopupURL" type="text" id="urlText"></input>
+                <button class="ButtonCloseSharePopup" id="CloseShare">Cerrar</button>
+            </div>
+        </div>
+    </div>
+
+
+
     <div class="A1109Bar"> A1109  </div>
 
     <div class="CalculatorTitle"> SIMULADOR DE MARGEN DE RUIDO </div>
@@ -24,6 +36,7 @@
     <div class="ResultInfo">
             <p class="ResultTitle"></p>
             <p class="ResultExplanation">Ingrese los valores de cada una de las tensiones y presione el boton calcular</p>
+            <button class="ShareButton" id="Share">Compartir!</button>
     </div>
 
     <div class="MainContainer">
@@ -155,5 +168,4 @@
 
     <script src="resources/js/NoiseMargin.js"></script>
 </body>
-
 </html>

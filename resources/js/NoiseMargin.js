@@ -2,6 +2,8 @@
 /* Martin Ferreya*/
 
 let focusConfigured=false;
+let previousGateInput;
+let previousGateOutput;
 
 
 //This will not work with negative numbers
@@ -1140,6 +1142,10 @@ class ControlPanel
             this.setExplanation(result)
         }
 
+        previousGateInput=gateInput;
+        previousGateOutput=gateOutput;
+
+
     }
 }
 
@@ -1148,8 +1154,49 @@ function calculate()
     const panel=new ControlPanel();
     panel.calculate();
     const result=document.querySelector('.ResultInfo');
+    const share=document.querySelector('#Share');
+    share.style.display="block";
     result.scrollIntoView({ block: "end", behavior: "smooth" });
+
 }
+
+function checkForParameters()
+{
+    let url=new URL(document.URL);
+    let params=url.searchParams;
+
+    if(params.has("VOHMax")==true && params.has("VOHMin")==true && params.has("VOLMax")==true && params.has("VOLMin")==true )
+    {
+        if(params.has("VIHMax")==true && params.has("VIHMin")==true && params.has("VILMax")==true && params.has("VILMin")==true )
+        {
+            const VOHMax=document.querySelector('#VOHMaxInput');
+            const VOHMin=document.querySelector('#VOHMinInput');
+            const VOLMax=document.querySelector('#VOLMaxInput');
+            const VOLMin=document.querySelector('#VOLMinInput');
+
+            const VIHMax=document.querySelector('#VIHMaxInput');
+            const VIHMin=document.querySelector('#VIHMinInput');
+            const VILMax=document.querySelector('#VILMaxInput');
+            const VILMin=document.querySelector('#VILMinInput');
+
+
+            VOHMax.value=params.get("VOHMax");
+            VOHMin.value=params.get("VOHMin");
+            VOLMax.value=params.get("VOLMax");
+            VOLMin.value=params.get("VOLMin");
+            VIHMax.value=params.get("VIHMax");
+            VIHMin.value=params.get("VIHMin");
+            VILMax.value=params.get("VILMax");
+            VILMin.value=params.get("VILMin");
+
+
+            calculate();
+
+        }
+    }
+
+}
+
 
 function configureFocus()
 {
@@ -1176,6 +1223,52 @@ function configureFocus()
 
 }
 
-configureFocus();
+function closeSharePopup()
+{
+    const popup = document.querySelector('#SharePopup');
+    popup.style.display="none";
+}
 
+function showSharePopup()
+{
+    const popup = document.querySelector('#SharePopup');
+    const url = document.querySelector('#urlText');
+    let urlToShare=new URL(document.URL);
+
+    const parameters=new URLSearchParams();
+
+    parameters.append("VOHMax",previousGateOutput.getVHMaxValue());
+    parameters.append("VOHMin",previousGateOutput.getVHMinValue());
+    parameters.append("VOLMax",previousGateOutput.getVLMaxValue());
+    parameters.append("VOLMin",previousGateOutput.getVLMinValue());
+
+    parameters.append("VIHMax",previousGateInput.getVHMaxValue());
+    parameters.append("VIHMin",previousGateInput.getVHMinValue());
+    parameters.append("VILMax",previousGateInput.getVLMaxValue());
+    parameters.append("VILMin",previousGateInput.getVLMinValue());
+
+
+    urlToShare=urlToShare.origin+"/?"+parameters.toString();
+
+    url.value=urlToShare.toString();
+    popup.style.display="block";
+
+}
+
+function configureSharePopup()
+{
+    const share = document.querySelector('#Share');
+    const closeShare = document.querySelector('#CloseShare');
+    share.addEventListener('click',showSharePopup);
+    closeShare.addEventListener('click',closeSharePopup);
+}
+
+configureFocus();
+configureSharePopup();
+
+document.addEventListener('DOMContentLoaded',checkForParameters);
 document.querySelector('#Calculate').addEventListener('click',calculate);
+
+
+
+

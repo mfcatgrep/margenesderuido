@@ -518,6 +518,72 @@
         text-align: center;
     }
 
+
+    .ShareModalPopup
+    {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0,0,0,0.4);
+    }
+
+    .ShareModalContent
+    {
+        background: var(--backgroundColor);;
+        width: 90vw;
+        margin: auto;
+        margin-top: 11vh;
+        height: 15vh;
+        border-radius: 2.1vh;
+    }
+
+    .PopupInfo
+    {
+        display:grid;
+        margin: auto;
+        width: 80%;
+        padding-top:2.5vh;
+        grid-template-areas:
+        "PL"
+        "PU"
+        "CB";
+    }
+
+    .PopupLabel
+    {
+        width:100%;
+        grid-area: PL;
+        padding-bottom:1vh;
+    }
+
+    .PopupURL
+    {
+        width:100%;
+        grid-area: PU;
+        height:3vh;
+    }
+
+    .ButtonCloseSharePopup
+    {
+        width:20%;
+        grid-area: CB;
+        height:3vh;
+        margin:auto;
+        margin-top:1vh;
+    }
+
+    .ShareButton
+    {
+        display:none;
+        width:12vh;
+        height:3vh;
+        margin:auto;
+    }
+
+
     .ResultTitle
     {
         width: 85%;
@@ -535,12 +601,6 @@
         margin: auto;
     }
 }
-
-
-
-
-
-
 
 @media only screen and (orientation: landscape) and (max-width:1280px)
 {
@@ -1068,6 +1128,72 @@
         margin-top: 2%;
     }
 
+
+    .ShareModalPopup
+    {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0,0,0,0.4);
+    }
+
+    .ShareModalContent
+    {
+        background: var(--backgroundColor);
+        width: 90vw;
+        margin: auto;
+        margin-top: 20%;
+        height: 40vh;
+        border-radius: 2.1vh;
+    }
+
+    .PopupInfo
+    {
+        display:grid;
+        margin: auto;
+        width: 80%;
+        padding-top:7.5vh;
+        grid-template-areas:
+        "PL"
+        "PU"
+        "CB";
+    }
+
+    .PopupLabel
+    {
+        width:100%;
+        grid-area: PL;
+        padding-bottom:1vh;
+    }
+
+    .PopupURL
+    {
+        width:100%;
+        grid-area: PU;
+        height:5vh;
+    }
+
+    .ButtonCloseSharePopup
+    {
+        width: 20%;
+        grid-area: CB;
+        height: 4vw;
+        margin: auto;
+        margin-top: 2vw;
+    }
+
+   .ShareButton
+    {
+        display:none;
+        width: 15vw;
+        height: 5vw;
+        margin: auto;
+    }
+
+
     .ResultInfo
     {
         width: 85%;
@@ -1077,16 +1203,6 @@
         margin: auto;
     }
 }
-
-
-
-
-
-
-
-
-
-
 
 @media (min-width:1281px) and (orientation: landscape)
 {
@@ -1530,6 +1646,71 @@
         height: 3vh;
         grid-area: CAL;
         margin-top : 10%;
+    }
+
+
+    .ShareModalPopup
+    {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0,0,0,0.4);
+    }
+
+    .ShareModalContent
+    {
+        background: var(--backgroundColor);
+        width: 40vw;
+        margin: auto;
+        margin-top: 11vh;
+        height: 15vh;
+        border-radius: 2.1vh;
+    }
+
+    .PopupInfo
+    {
+        display:grid;
+        margin: auto;
+        width: 80%;
+        padding-top:2.5vh;
+        grid-template-areas:
+        "PL"
+        "PU"
+        "CB";
+    }
+
+    .PopupLabel
+    {
+        width:100%;
+        grid-area: PL;
+        padding-bottom:1vh;
+    }
+
+    .PopupURL
+    {
+        width:100%;
+        grid-area: PU;
+        height:3vh;
+    }
+
+    .ButtonCloseSharePopup
+    {
+        width:20%;
+        grid-area: CB;
+        height:3vh;
+        margin:auto;
+        margin-top:1vh;
+    }
+
+    .ShareButton
+    {
+        display:none;
+        width:12vh;
+        height:3vh;
+        margin:auto;
     }
 
     .ResultInfo
